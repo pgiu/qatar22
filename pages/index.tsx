@@ -21,7 +21,11 @@ interface Game {
   away_scorers: string[];
 }
 
-export default function Home({games, error}) {
+interface P{
+  games?: Game[];
+  error?: string;
+}
+export default function Home({games, error}:P) {
   return (
     <div className={styles.container}>
       <Head>
@@ -42,7 +46,7 @@ export default function Home({games, error}) {
         <div className={styles.grid}>
           {
             error ? error :
-              games ? games.map((g: Game) =>
+              games ? games.map((g) =>
                   <div className={styles.card} key={g._id}>
                     <table>
                       <tr>
