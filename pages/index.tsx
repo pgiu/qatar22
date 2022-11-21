@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 import styles from '../styles/Home.module.css'
+import Image from "next/image";
 
 interface Game {
   _id: string;
@@ -50,32 +51,41 @@ export default function Home({games, error}:P) {
                   <div className={styles.card} key={g._id}>
                     <table>
                       <tr>
-                        <td>
-                          <p>{dayjs(g.local_date, "MM-DD-YYYY").format('DD/MM/YY')}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
+                        <td colspan={"2"} style={{textAlign: 'center'}}>
                           {g.finished === 'TRUE'? 'finished' : g.time_elapsed}
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="right">
                           <h2>
-                            {g.home_team_en} {g.home_score}
+                            {g.home_team_en} <Image width={30} height={20} src={g.home_flag} alt='flag'/>
                           </h2>
                         </td>
-                        <td>
+                        <td className='left'>
                           <h2>
-                            {g.away_score} {g.away_team_en}
+                             <Image width={30} height={20} src={g.away_flag} alt='flag'/> {g.away_team_en}
+                          </h2>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className='right'>
+                          <h2>
+                            {g.home_score}
+                          </h2>
+                        </td>
+                        <td className='left'>
+                          <h2>
+                           {g.away_score}
                           </h2>
                         </td>
                       </tr>
                       <tr>
                         <td>
+                          Scorers
                           <p>{!g.home_scorers?.includes("null")? g.home_scorers[0].split(',').join(', ') : ''}</p>
                         </td>
                         <td>
+                          Scorers
                           <p>{!g.away_scorers?.includes("null")? g.away_scorers[0].split(',').join(', '): ''}</p>
                         </td>
                       </tr>
