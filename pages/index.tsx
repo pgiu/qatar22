@@ -51,7 +51,7 @@ export default function Home({games, error}:P) {
                   <div className={styles.card} key={g._id}>
                     <table>
                       <tr>
-                        <td colspan={"2"} style={{textAlign: 'center'}}>
+                        <td style={{textAlign: 'center'}}>
                           {g.finished === 'TRUE'? 'finished' : g.time_elapsed}
                         </td>
                       </tr>
