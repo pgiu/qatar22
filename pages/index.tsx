@@ -17,16 +17,17 @@ interface Game {
   home_score: number;
   away_score: number;
   group: string;
-  finished: 'FALSE'|'TRUE';
+  finished: 'FALSE' | 'TRUE';
   home_scorers: string[];
   away_scorers: string[];
 }
 
-interface P{
+interface P {
   games?: Game[];
   error?: string;
 }
-export default function Home({games, error}:P) {
+
+export default function Home({games, error}: P) {
   return (
     <div className={styles.container}>
       <Head>
@@ -41,7 +42,7 @@ export default function Home({games, error}:P) {
         </h1>
 
         <p className={styles.description}>
-          { `Games of the day ${dayjs().format('MM/DD/YYYY')}`}
+          {`Showing games for ${dayjs().format('dddd MMMM DD YYYY')}`}
         </p>
 
         <div className={styles.grid}>
@@ -52,7 +53,7 @@ export default function Home({games, error}:P) {
                     <table>
                       <tr>
                         <td colSpan={2} style={{textAlign: 'center'}}>
-                          {g.finished === 'TRUE'? 'finished' : g.time_elapsed}
+                          {g.finished === 'TRUE' ? 'finished' : g.time_elapsed}
                         </td>
                       </tr>
                       <tr>
@@ -63,7 +64,7 @@ export default function Home({games, error}:P) {
                         </td>
                         <td className='left'>
                           <h2>
-                             <Image width={30} height={20} src={g.away_flag} alt='flag'/> {g.away_team_en}
+                            <Image width={30} height={20} src={g.away_flag} alt='flag'/> {g.away_team_en}
                           </h2>
                         </td>
                       </tr>
@@ -75,33 +76,37 @@ export default function Home({games, error}:P) {
                         </td>
                         <td className='left'>
                           <h2>
-                           {g.away_score}
+                            {g.away_score}
                           </h2>
                         </td>
                       </tr>
                       <tr>
                         <td>
                           Scorers
-                          <p>{!g.home_scorers?.includes("null")? g.home_scorers[0].split(',').join(', ') : ''}</p>
+                          <p>{!g.home_scorers?.includes("null") ? g.home_scorers[0].split(',').join(', ') : ''}</p>
                         </td>
                         <td>
                           Scorers
-                          <p>{!g.away_scorers?.includes("null")? g.away_scorers[0].split(',').join(', '): ''}</p>
+                          <p>{!g.away_scorers?.includes("null") ? g.away_scorers[0].split(',').join(', ') : ''}</p>
                         </td>
                       </tr>
                     </table>
-
-
                   </div>
                 ) :
                 'loading...'
-
           }
         </div>
+        <p>
+          The FIFA World Cup is currently being played in Qatar. The event is taking place in Qatar from 20 November to
+          18 December 2022. This is the first World Cup to be held in the Arab world, and the second World Cup held
+          entirely in Asia after the 2002 tournament in South Korea and Japan.
+          Tune in for daily updates and never miss a
+          result. Feel free to say hi on <a href={"https://www.linkedin.com/in/pablogiudice"}>LinkedIn</a>.
+        </p>
       </main>
 
       <footer className={styles.footer}>
-          Created with ❤️ by pgiu from 🇦🇷
+        Created with ❤️ by pgiu from 🇦🇷
       </footer>
     </div>
   )
