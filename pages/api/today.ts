@@ -21,7 +21,7 @@ export default async function handler(
     method: 'post',
     url: 'http://api.cup2022.ir/api/v1/bydate',
     headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdiOTdiOWZkOWFhYzIyNjc5MDY1NjMiLCJpYXQiOjE2NjkwNDg0OTAsImV4cCI6MTY2OTEzNDg5MH0.PeKN6eQlB4ccV_Y8YIOkn43QpV097rfP6kZKw5z5dUI',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdiOTdiOWZkOWFhYzIyNjc5MDY1NjMiLCJpYXQiOjE2NjkxMzk0NTQsImV4cCI6MTY2OTIyNTg1NH0.AZMtsIL4i3HqehY0VdvEcgsqwIzFZQer98QglO6r-c4',
       'Content-Type': 'application/json'
     },
     data : data
