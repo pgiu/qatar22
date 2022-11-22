@@ -2,7 +2,11 @@ import Head from 'next/head'
 import dayjs from 'dayjs'
 
 const customParseFormat = require('dayjs/plugin/customParseFormat')
+// const utc = require('dayjs/plugin/utc')
+// const timezone = require('dayjs/plugin/timezone')
 dayjs.extend(customParseFormat)
+// dayjs.extend(utc)
+// dayjs.extend(timezone)
 import styles from '../styles/Home.module.css'
 import Image from "next/image";
 
@@ -53,7 +57,13 @@ export default function Home({games, error}: P) {
                     <table>
                       <tr>
                         <td colSpan={2} style={{textAlign: 'center'}}>
-                          {g.finished === 'TRUE' ? 'finished' : g.time_elapsed}
+                          {g.finished === 'TRUE' ?
+                            'finished' :
+                            (
+                              g.time_elapsed !== 'notstarted' ?
+                                g.time_elapsed :
+                                dayjs(g.local_date).subtract(6, 'hours').format('h:mm a')
+                            )}
                         </td>
                       </tr>
                       <tr>
@@ -93,7 +103,6 @@ export default function Home({games, error}: P) {
                           </td>
                         </tr>
                       }
-
                     </table>
                   </div>
                 ) :
