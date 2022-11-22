@@ -74,7 +74,7 @@ export default function Home({games, error}: P) {
                         </td>
                         <td className='left'>
                           <h2>
-                            <Image width={30} height={20} src={g.away_flag} alt='flag'/> {g.away_team_en}
+                            {g.away_team_en} <Image width={30} height={20} src={g.away_flag} alt='flag'/>
                           </h2>
                         </td>
                       </tr>
