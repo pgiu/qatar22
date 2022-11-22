@@ -1,19 +1,4 @@
-# Qatar 22 World Cup Results
-
-Displays Qatar 2022 World Cup results.
-
-## Getting Started
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
-## Licences
-
-Favicon
+This favicon was generated using the following graphics from Twitter Twemoji:
 
 - Graphics Title: 26bd.svg
 - Graphics Author: Copyright 2020 Twitter, Inc and other contributors (https://github.com/twitter/twemoji)
