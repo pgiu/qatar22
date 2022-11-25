@@ -16,9 +16,15 @@ export default async function handler(
     res.status(401).json({status: 'false'})
   }
   // TODO auth with backend
+  const response = await axios.post('http://api.cup2022.ir/api/v1/user/login',{
+    'email': process.env.FOOTBALL_API_EMAIL,
+    'password': process.env.FOOTBALL_API_PASSWORD
+  })
+  const authToken = response.data.data.token;
+
   try {
     await axios.patch("https://api.vercel.com/v9/projects/qatar22/env/API_TOKEN", {
-      "value": "123456"
+      "value": authToken
     }, {
       headers: {
         Authorization: `Bearer ${process.env.VERCEL_AUTH_TOKEN}`
