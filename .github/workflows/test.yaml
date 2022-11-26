@@ -2,7 +2,10 @@ name: Trigger Credentials Update
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '*/5 * * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   cron:
