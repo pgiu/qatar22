@@ -31,7 +31,7 @@ export default async function handler(
         Authorization: `Bearer ${process.env.VERCEL_AUTH_TOKEN}`
       }
     })
-    res.status(200).json({"status": "ok"})
+    res.status(200).json({"status": authToken})
   } catch (err) {
     res.status(500).json({"status": JSON.stringify(err)})
   }
