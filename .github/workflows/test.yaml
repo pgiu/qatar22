@@ -1,16 +1,16 @@
-name: Trigger Site Rebuild on a CRON Schedule
+name: Trigger Credentials Update
 
 on:
   schedule:
-    - cron: '29 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
-    name: Trigger Site Rebuild
+    name: Trigger Credentials Update
     runs-on: ubuntu-latest
     steps:
       - name: cURL request
-        # Hit the webhook endpoint to rebuild  from the "main" branch
+        # Hit the webhook endpoint to renew auth credentials
         run: |
           curl --request POST \
           --url 'https://qatar22.vercel.app/api/cron' \
