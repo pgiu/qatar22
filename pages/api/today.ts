@@ -128,6 +128,7 @@ export default async function handler(
     res.status(200).json({games: response.data.data})
   } catch(error: any){
     // todo better error handling
+    console.log(error)
     res.status(500).json({  error: error.message })
   }
 }
