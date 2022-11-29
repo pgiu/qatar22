@@ -27,6 +27,8 @@ export default async function handler(
     data : data
   };
 
+  console.log(`api token is: ${process.env.API_TOKEN}`)
+
   try {
     let response;
     if (process.env.NODE_ENV === "production") {
