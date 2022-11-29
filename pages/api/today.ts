@@ -13,10 +13,11 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const today = dayjs().format('MM/DD/YYYY');
+  console.log(`today is ${today}`)
+
   const data = JSON.stringify({
     "date": today
   });
-
   const config = {
     method: 'post',
     url: 'http://api.cup2022.ir/api/v1/bydate',
