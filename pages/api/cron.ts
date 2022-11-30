@@ -20,7 +20,7 @@ export default async function handler(
     'email': process.env.FOOTBALL_API_EMAIL,
     'password': process.env.FOOTBALL_API_PASSWORD
   })
-  const authToken = response.data.data.token;
+  const authToken = response.data.data.token.replace('\r\n', '');
 
   try {
     // 0li8YplpB3AoUyG4 = API_TOKEN in vercel
