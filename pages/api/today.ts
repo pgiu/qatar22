@@ -18,6 +18,7 @@ export default async function handler(
   const data = JSON.stringify({
     "date": today
   });
+
   const config = {
     method: 'post',
     url: 'http://api.cup2022.ir/api/v1/bydate',
