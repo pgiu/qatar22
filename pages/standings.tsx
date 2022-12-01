@@ -125,8 +125,9 @@ export default function Standings({standings, error}: P) {
 
 export async function getStaticProps() {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/standings`)
-  const {standings, error} = await res.json()
+  //const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/standings`)
+  //const {standings, error} = await res.json()
+  const {standings, error} = {standings: {}, error:undefined}
 
   return {
     props: {
