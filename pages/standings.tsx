@@ -50,7 +50,7 @@ export default function Standings({standings, error}: P) {
           {`Showing standings up to ${dayjs().format('dddd MMMM DD YYYY')}`}
         </p>
 
-        <Link href={'/'}>See today's games</Link>
+        <Link href={'/'}>See today&apos;s games</Link>
 
         <div className={styles.grid}>
           {
@@ -90,7 +90,7 @@ export default function Standings({standings, error}: P) {
                               }
                               return 0
                             }).map(team => (
-                              <tr>
+                              <tr key={team.team_id}>
                                 <td>
                                   <Image src={team.flag} width={30} height={20}
                                          alt={'flag of ' + team.name_en}/> {team.name_en}
