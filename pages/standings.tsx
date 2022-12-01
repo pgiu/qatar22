@@ -5,6 +5,7 @@ const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 import styles from '../styles/Home.module.css'
 import Image from "next/image";
+import Link from "next/link";
 
 interface Team {
   "team_id": string;
@@ -48,6 +49,8 @@ export default function Standings({standings, error}: P) {
         <p className={styles.description}>
           {`Showing standings up to ${dayjs().format('dddd MMMM DD YYYY')}`}
         </p>
+
+        <Link href={'/'}>See today's games</Link>
 
         <div className={styles.grid}>
           {

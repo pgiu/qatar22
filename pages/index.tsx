@@ -9,6 +9,7 @@ dayjs.extend(customParseFormat)
 // dayjs.extend(timezone)
 import styles from '../styles/Home.module.css'
 import Image from "next/image";
+import Link from "next/link";
 
 interface Game {
   _id: string;
@@ -48,6 +49,8 @@ export default function Home({games, error}: P) {
         <p className={styles.description}>
           {`Showing games for ${dayjs().format('dddd MMMM DD YYYY')}`}
         </p>
+
+        <Link href={'/standings'}>See standings</Link>
 
         <div className={styles.grid}>
           {
