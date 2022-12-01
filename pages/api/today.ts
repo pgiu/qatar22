@@ -23,7 +23,7 @@ export default async function handler(
     method: 'post',
     url: 'http://api.cup2022.ir/api/v1/bydate',
     headers: {
-      'Authorization': `Bearer ${process.env.API_TOKEN}`,
+      'Authorization': `Bearer ${process.env.API_TOKEN.replace('\r\n', '')}`,
       'Content-Type': 'application/json'
     },
     data : data
