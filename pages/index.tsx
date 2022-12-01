@@ -52,60 +52,62 @@ export default function Home({games, error}: P) {
         <div className={styles.grid}>
           {
             error ? error :
-              games ? games.map((g) =>
-                  <div className={styles.card} key={g._id}>
-                    <table>
-                      <tr>
-                        <td colSpan={2} style={{textAlign: 'center'}}>
-                          {g.finished === 'TRUE' ?
-                            'finished' :
-                            (
-                              g.time_elapsed !== 'notstarted' ?
-                                g.time_elapsed :
-                                dayjs(g.local_date).subtract(6, 'hours').format('h:mm a')
-                            )}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="right">
-                          <h2>
-                            {g.home_team_en} <Image width={30} height={20} src={g.home_flag} alt='flag'/>
-                          </h2>
-                        </td>
-                        <td className='left'>
-                          <h2>
-                            {g.away_team_en} <Image width={30} height={20} src={g.away_flag} alt='flag'/>
-                          </h2>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className='right'>
-                          <h2>
-                            {g.home_score}
-                          </h2>
-                        </td>
-                        <td className='left'>
-                          <h2>
-                            {g.away_score}
-                          </h2>
-                        </td>
-                      </tr>
-                      {
-                        g.time_elapsed !== 'notstarted' && (!g.home_scorers?.includes("null") || !g.away_scorers?.includes("null")) &&
+              games ?
+                games.length === 0 ? 'No matches today' :
+                  games.map((g) =>
+                    <div className={styles.card} key={g._id}>
+                      <table>
                         <tr>
-                          <td>
-                            Scorers
-                            <p>{!g.home_scorers?.includes("null") ? g.home_scorers[0].split(',').join(', ') : ''}</p>
-                          </td>
-                          <td>
-                            Scorers
-                            <p>{!g.away_scorers?.includes("null") ? g.away_scorers[0].split(',').join(', ') : ''}</p>
+                          <td colSpan={2} style={{textAlign: 'center'}}>
+                            {g.finished === 'TRUE' ?
+                              'finished' :
+                              (
+                                g.time_elapsed !== 'notstarted' ?
+                                  g.time_elapsed :
+                                  dayjs(g.local_date).subtract(6, 'hours').format('h:mm a')
+                              )}
                           </td>
                         </tr>
-                      }
-                    </table>
-                  </div>
-                ) :
+                        <tr>
+                          <td className="right">
+                            <h2>
+                              {g.home_team_en} <Image width={30} height={20} src={g.home_flag} alt='flag'/>
+                            </h2>
+                          </td>
+                          <td className='left'>
+                            <h2>
+                              {g.away_team_en} <Image width={30} height={20} src={g.away_flag} alt='flag'/>
+                            </h2>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className='right'>
+                            <h2>
+                              {g.home_score}
+                            </h2>
+                          </td>
+                          <td className='left'>
+                            <h2>
+                              {g.away_score}
+                            </h2>
+                          </td>
+                        </tr>
+                        {
+                          g.time_elapsed !== 'notstarted' && (!g.home_scorers?.includes("null") || !g.away_scorers?.includes("null")) &&
+                          <tr>
+                            <td>
+                              Scorers
+                              <p>{!g.home_scorers?.includes("null") ? g.home_scorers[0].split(',').join(', ') : ''}</p>
+                            </td>
+                            <td>
+                              Scorers
+                              <p>{!g.away_scorers?.includes("null") ? g.away_scorers[0].split(',').join(', ') : ''}</p>
+                            </td>
+                          </tr>
+                        }
+                      </table>
+                    </div>
+                  ) :
                 'loading...'
           }
         </div>
