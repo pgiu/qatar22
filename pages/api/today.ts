@@ -12,7 +12,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const today = dayjs().format('MM/DD/YYYY');
+  const today = dayjs().format('MM/D/YYYY');
   console.log(`today is ${today}`)
 
   const data = JSON.stringify({
